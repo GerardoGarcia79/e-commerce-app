@@ -5,7 +5,7 @@ import ProductsGrid from "./Components/ProductsGrid";
 function App() {
   return (
     <div className="w-full">
-      <div className="bg-gray-100 max-w-[1100px] mx-auto">
+      <div className="max-w-[1100px] mx-auto">
         <NavBar />
         <hr className="block h-[1px] border-0 border-b-[1px] border-solid border-gray-200 my-1" />
         <div className="my-5">

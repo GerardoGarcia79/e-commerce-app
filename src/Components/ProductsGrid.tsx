@@ -1,8 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import ProductCard from "./ProductCard";
 
-interface Product {
+export interface Product {
   title: string;
+  id: number;
+  description: string;
+  image: string;
+  price: number;
 }
 
 interface FetchResponse {
@@ -20,11 +25,11 @@ const ProductsGrid = () => {
   }, []);
 
   return (
-    <ul>
-      {products.map((p) => (
-        <li>{p.title}</li>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {products.map((product) => (
+        <ProductCard product={product} />
       ))}
-    </ul>
+    </div>
   );
 };
 
