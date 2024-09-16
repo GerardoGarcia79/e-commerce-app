@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/apiClient";
+import { CanceledError } from "axios";
 
 export interface Product {
   title: string;
@@ -20,17 +21,21 @@ const useProducts = (endpoint: string) => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    const controller = new AbortController();
     setIsLoading(true);
     apiClient
-      .get<FetchResponse>(endpoint)
+      .get<FetchResponse>(endpoint, { signal: controller.signal })
       .then((res) => {
         setProducts(res.data.products);
         setIsLoading(false);
       })
       .catch((error) => {
+        if (error instanceof CanceledError) return;
         setError(error.message);
         setIsLoading(false);
       });
+
+    return () => controller.abort();
   }, [endpoint]);
 
   return { products, error, isLoading };
