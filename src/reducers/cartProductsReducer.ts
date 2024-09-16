@@ -10,7 +10,7 @@ interface DeleteProduct {
   productId: number;
 }
 
-type ProductAction = AddProduct | DeleteProduct;
+export type ProductAction = AddProduct | DeleteProduct;
 
 const cartProductsReducer = (
   cartProducts: Product[],

@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import MainContainer from "../Components/MainContainer";
 import NavBar from "../Components/NavBar";
+import ProductCartProvider from "../Components/ProductCartProvider";
 
 const Layout = () => {
   return (
@@ -11,7 +12,9 @@ const Layout = () => {
         <h1 className="text-3xl my-4">
           <span className="text-gray-400">ALL</span> PRODUCTS
         </h1>
-        <Outlet />
+        <ProductCartProvider>
+          <Outlet />
+        </ProductCartProvider>
       </div>
     </MainContainer>
   );
