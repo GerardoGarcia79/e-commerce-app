@@ -1,9 +1,8 @@
-import "./App.css";
-import MainContainer from "./Components/MainContainer";
-import NavBar from "./Components/NavBar";
-import ProductsGrid from "./Components/ProductsGrid";
+import { Outlet } from "react-router-dom";
+import MainContainer from "../Components/MainContainer";
+import NavBar from "../Components/NavBar";
 
-function App() {
+const Layout = () => {
   return (
     <MainContainer>
       <NavBar />
@@ -12,10 +11,10 @@ function App() {
         <h1 className="text-3xl my-4">
           <span className="text-gray-400">ALL</span> PRODUCTS
         </h1>
-        <ProductsGrid />
+        <Outlet />
       </div>
     </MainContainer>
   );
-}
+};
 
-export default App;
+export default Layout;
