@@ -1,5 +1,5 @@
+import { Product } from "../hooks/useProducts";
 import ExpandibleText from "./ExpandibleText";
-import { Product } from "./ProductsGrid";
 
 interface Props {
   product: Product;
