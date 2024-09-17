@@ -2,7 +2,7 @@ import ProductsCartGrid from "../Components/ProductsCartGrid";
 import useProductsContext from "../hooks/useProductsContext";
 
 const ShoppingCartPage = () => {
-  const { cartProducts } = useProductsContext();
+  const { cartProducts, dispatch } = useProductsContext();
   const subtotal = cartProducts.reduce((acc, cur) => acc + cur.price, 0);
   const shippingFee = 10;
   const total = subtotal + shippingFee;
@@ -17,8 +17,15 @@ const ShoppingCartPage = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 ">
       <div>
+        <button
+          onClick={() => dispatch({ type: "RESET" })}
+          className="py-2 px-5 rounded-full border-2 border-red-600 text-red-600 bg-white mb-2 hover:text-white hover:bg-red-600"
+        >
+          Empty Cart
+        </button>
         <ProductsCartGrid />
       </div>
+
       <div className="md:fixed md:top-1/3 md:right-1/4">
         <h2 className="font-semibold text-2xl">
           <span className="text-gray-400">CART</span> TOTALS

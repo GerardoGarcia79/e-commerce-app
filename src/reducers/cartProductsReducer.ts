@@ -10,7 +10,11 @@ interface DeleteProduct {
   productId: number;
 }
 
-export type ProductAction = AddProduct | DeleteProduct;
+interface EmptyCart {
+  type: "RESET";
+}
+
+export type ProductAction = AddProduct | DeleteProduct | EmptyCart;
 
 const cartProductsReducer = (
   cartProducts: Product[],
@@ -21,6 +25,8 @@ const cartProductsReducer = (
       return [action.product, ...cartProducts];
     case "DELETE":
       return cartProducts.filter((product) => product.id !== action.productId);
+    case "RESET":
+      return (cartProducts = []);
   }
 };
 

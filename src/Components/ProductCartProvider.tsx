@@ -19,8 +19,6 @@ const ProductCardProvider = ({ children }: Props) => {
     return index >= 0;
   };
 
-  console.log(cartProducts);
-
   useEffect(() => {
     localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
   }, [cartProducts]);
