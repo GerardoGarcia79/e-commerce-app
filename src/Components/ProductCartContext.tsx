@@ -6,8 +6,7 @@ import React from "react";
 interface ProductCartContextType {
   cartProducts: Product[];
   dispatch: Dispatch<ProductAction>;
-  isInCart: boolean;
-  setIsInCart: Dispatch<React.SetStateAction<boolean>>;
+  findProductInCart: (id: number) => boolean;
 }
 
 const ProductCartContext = React.createContext<ProductCartContextType>(
