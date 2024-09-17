@@ -15,8 +15,6 @@ const ProductCard = ({
   dispatch,
   cartProducts,
 }: Props) => {
-  // Save the cartProducts in LocalStorage and share functions to know if the current product is in cartProducts to ShoppingCartPage to render correct button 'DELETE'
-
   return (
     <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
       <div className="flex justify-center relative">
