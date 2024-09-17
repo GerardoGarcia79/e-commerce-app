@@ -1,8 +1,11 @@
 import logo from "../assets/logo.png";
 import cart from "../assets/cart_icon.png";
 import profile from "../assets/profile_icon.png";
+import useProductsContext from "../hooks/useProductsContext";
 
 const NavBar = () => {
+  const { cartProducts } = useProductsContext();
+
   return (
     <div className="flex flex-col md:flex-row items-center py-2 md:justify-between">
       <img
@@ -20,7 +23,7 @@ const NavBar = () => {
         <img src={profile} className="w-8 md:w-6 mr-20 md:mr-3 " />
         <img src={cart} className="w-8 md:w-6" />
         <span className="flex justify-center items-center absolute -right-[2px] -bottom-[2px] text-[12px] w-4 rounded-full bg-black text-white">
-          0
+          {cartProducts.length}
         </span>
       </div>
     </div>
