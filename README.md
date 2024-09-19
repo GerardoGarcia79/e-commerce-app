@@ -48,3 +48,5 @@ export default tseslint.config({
   },
 })
 ```
+## About the project
+You can see the project here: https://e-commerce-app-bice-seven.vercel.app/
